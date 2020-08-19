@@ -3,11 +3,22 @@ package mergesort;
 public class MergeSort {
 	
 	public void mergeSort(int[] vector, int size) {
+		int mid = 0;
+		
 		if(size < 2) {
 			return;
 		}
 		
-		int mid = size / 2;
+		if(size % 2 == 0) {
+			mid = size / 2;
+		} else {
+			double sizeDouble = Double.valueOf(size);
+			double midDouble = sizeDouble / 2;
+			
+			midDouble = Math.floor(midDouble);
+			mid = (int)midDouble;
+		}
+		
 		int[] vectorLeft = new int[mid];
 		int[] vectorRight = new int[size - mid];
 		
